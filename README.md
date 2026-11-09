@@ -1,3 +1,7 @@
+# Adaptive Night Light
+An adaptive night light written in C for an ESP32 microcontroller (Final project for BEEP in Embedded Systems @ Purdue)
+
+## Roadmap
 - [x] Get photoresistors working
 - [ ] Get light working
 - [ ] Get color potentiometer working

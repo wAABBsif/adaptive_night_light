@@ -1,4 +1,4 @@
-- [ ] Get photoresistors working
+- [x] Get photoresistors working
 - [ ] Get light working
 - [ ] Get color potentiometer working
 - [ ] Get calibration buttons working

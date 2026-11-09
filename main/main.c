@@ -1,9 +1,7 @@
 #include <stdio.h>
+#include "macros.h"
 #include "esp_log.h"
 #include "esp_adc/adc_oneshot.h"
-
-#define PHOTO_ADC_CHANNEL ADC_CHANNEL_6
-#define POT_ADC_CHANNEL   ADC_CHANNEL_4
 
 void app_main(void)
 {

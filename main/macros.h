@@ -1,0 +1,4 @@
+#pragma once
+
+#define PHOTO_ADC_CHANNEL ADC_CHANNEL_6
+#define POT_ADC_CHANNEL   ADC_CHANNEL_4

@@ -1,0 +1,8 @@
+- [ ] Get photoresistors working
+- [ ] Get light working
+- [ ] Get color potentiometer working
+- [ ] Get calibration buttons working
+- [ ] Set color of LED based on potentiometer
+- [ ] Detect light based on calibration
+- [ ] Set brightness of LED based on light detection
+- [ ] Add smoothness to brightness change

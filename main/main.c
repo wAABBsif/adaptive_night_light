@@ -54,6 +54,9 @@ void set_and_read_initial_values(void) {
 }
 
 void update(void) {
+    float color_warmness = potentiometer_get_value(s_potentiometer);
+    color light_color = color_lerp(COOL_COLOR, WARM_COLOR, color_warmness);
+    rgb_light_set_color(s_light, light_color);
 }
 
 void app_main(void) {

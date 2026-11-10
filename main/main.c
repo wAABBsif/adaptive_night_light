@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "esp_adc/adc_oneshot.h"
 #include "hal/adc_types.h"
 #include "macros.h"
 #include "esp_log.h"
@@ -6,11 +7,17 @@
 #include "rgb_light.h"
 #include "freertos/FreeRTOS.h"
 
+static adc_oneshot_unit_handle_t s_adc_handle;
 static p_photoresistor s_photoresistor;
 static p_rgb_light s_light;
 
 void initialize(void) {
-    s_photoresistor = photoresistor_init(PHOTORESISTOR_PIN, ADC_UNIT_1, ADC_CHANNEL_6, true);
+    adc_oneshot_unit_init_cfg_t adc_unit_cfg = {
+        .unit_id = ADC_UNIT
+    };
+    adc_oneshot_new_unit(&adc_unit_cfg, &s_adc_handle);
+    s_photoresistor = photoresistor_init(PHOTORESISTOR_PIN, s_adc_handle,
+            PHOTORESISTOR_ADC_CHANNEL, true);
     s_light = rgb_light_init(LIGHT_R_PIN, LIGHT_G_PIN, LIGHT_B_PIN,
             LIGHT_R_CHANNEL, LIGHT_G_CHANNEL, LIGHT_B_CHANNEL);
 }

@@ -31,3 +31,4 @@
 
 #define WARM_COLOR                  ((color){1.0, 0.0, 0.0})
 #define COOL_COLOR                  ((color){0.0, 0.0, 1.0})
+#define COLOR_CHANGE_RATE           (0.5f * 0.01f)

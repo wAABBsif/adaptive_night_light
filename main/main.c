@@ -17,6 +17,7 @@ static p_photoresistor s_photoresistor;
 static p_potentiometer s_potentiometer;
 static p_rgb_light s_light;
 
+static float s_current_brightness = 0.0f;
 static float s_calibration_min = 0.0f;
 static float s_calibration_max = 1.0f;
 
@@ -63,7 +64,8 @@ void update(void) {
     float color_brightness = 1 - INV_LERP(s_calibration_min, s_calibration_max, room_brightness);
     color_brightness = CLAMP(color_brightness, 0.0f, 1.0f);
     color light_color = color_lerp(COOL_COLOR, WARM_COLOR, color_warmness);
-    light_color = color_mult(light_color, color_brightness);
+    s_current_brightness = MOVE_TO(s_current_brightness, color_brightness, COLOR_CHANGE_RATE);
+    light_color = color_mult(light_color, s_current_brightness);
     rgb_light_set_color(s_light, light_color);
 }
 

@@ -3,6 +3,7 @@ idf_component_register(SRCS
     "macros.h"
     "color.h"
     "photoresistor.h" "photoresistor.c"
+    "potentiometer.h" "potentiometer.c"
     "rgb_light.h" "rgb_light.c"
     INCLUDE_DIRS "."
     REQUIRES driver

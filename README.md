@@ -4,7 +4,7 @@ An adaptive night light written in C for an ESP32 microcontroller (Final project
 ## Roadmap
 - [x] Get photoresistors working
 - [x] Get light working
-- [ ] Get color potentiometer working
+- [x] Get color potentiometer working
 - [ ] Get calibration buttons working
 - [ ] Set color of LED based on potentiometer
 - [ ] Detect light based on calibration

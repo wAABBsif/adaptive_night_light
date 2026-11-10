@@ -29,6 +29,6 @@
 #define POTENTIOMETER_PIN           GPIO_NUM_32
 #define POTENTIOMETER_ADC_CHANNEL   ADC_CHANNEL_4
 
-#define WARM_COLOR                  ((color){1.0, 0.0, 0.0})
-#define COOL_COLOR                  ((color){0.0, 0.0, 1.0})
+#define WARM_COLOR                  ((color){1.0, 0.05, 0.0})
+#define COOL_COLOR                  ((color){0.0, 0.1, 0.5})
 #define COLOR_CHANGE_RATE           (0.5f * 0.01f)

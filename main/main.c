@@ -16,12 +16,15 @@ static p_photoresistor s_photoresistor;
 static p_potentiometer s_potentiometer;
 static p_rgb_light s_light;
 
-void handle_calibration_min_press(p_button b) {
+static float s_calibation_min = 0.0f;
+static float s_calibation_max = 1.0f;
 
+void handle_calibration_min_press(p_button b) {
+    s_calibation_min = photoresistor_get_light_level(s_photoresistor);
 }
 
 void handle_calibration_max_press(p_button b) {
-
+    s_calibation_max = photoresistor_get_light_level(s_photoresistor);
 }
 
 void initialize(void) {
@@ -57,6 +60,7 @@ void update(void) {
     float color_warmness = potentiometer_get_value(s_potentiometer);
     color light_color = color_lerp(COOL_COLOR, WARM_COLOR, color_warmness);
     rgb_light_set_color(s_light, light_color);
+    ESP_LOGI(TAG, "Brightness range is %f - %f", s_calibation_min, s_calibation_max);
 }
 
 void app_main(void) {

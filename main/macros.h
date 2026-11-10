@@ -3,6 +3,7 @@
 
 #define CLAMP(v, min, max) (v > min ? (v < max ? v : max) : min)
 #define LERP(a, b, v) (a + (b - a) * v)
+#define INVERSE_LERP(a, b, y) ((v - a) / (b - a));
 
 #define TAG                         "adaptive_night_light"
 

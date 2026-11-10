@@ -1,9 +1,13 @@
 #pragma once
 #include "driver/gpio.h"
 
-#define CLAMP(v, min, max) (v > min ? (v < max ? v : max) : min)
+#define CLAMP(v, min, max) ((v) > (min) ? ((v) < (max) ? (v) : (max)) : (min))
 #define LERP(a, b, v) (a + (b - a) * v)
 #define INV_LERP(a, b, v) ((v - a) / (b - a))
+#define MOVE_TO(value, dest, delta) ((value) + CLAMP(                       \
+            ((dest) > (value)) ? (delta) : (-delta),                        \
+            ((dest) > (value)) ? ((value) - (dest)) : ((dest) - (value)),   \
+            ((dest) > (value)) ? ((dest) - (value)) : ((value) - (dest))))
 
 #define TAG                         "adaptive_night_light"
 

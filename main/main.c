@@ -52,12 +52,6 @@ void initialize(void) {
             LIGHT_R_CHANNEL, LIGHT_G_CHANNEL, LIGHT_B_CHANNEL);
 }
 
-void set_and_read_initial_values(void) {
-    ESP_LOGI(TAG, "Photoresistor level is: %f", photoresistor_get_light_level(s_photoresistor));
-    ESP_LOGI(TAG, "Potentiometer value is: %f", potentiometer_get_value(s_potentiometer));
-    rgb_light_set_color(s_light, WHITE);
-}
-
 void update(void) {
     float room_brightness = photoresistor_get_light_level(s_photoresistor);
     float color_warmness = potentiometer_get_value(s_potentiometer);
@@ -71,8 +65,6 @@ void update(void) {
 
 void app_main(void) {
     initialize();
-    set_and_read_initial_values();
-    vTaskDelay(pdMS_TO_TICKS(1000));
     while (true) {
         update();
         vTaskDelay(pdMS_TO_TICKS(10));

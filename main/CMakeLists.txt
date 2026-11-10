@@ -1,7 +1,7 @@
 idf_component_register(SRCS
     "main.c"
     "macros.h"
-    "color.h"
+    "color.h" "color.c"
     "button.h" "button.c"
     "photoresistor.h" "photoresistor.c"
     "potentiometer.h" "potentiometer.c"

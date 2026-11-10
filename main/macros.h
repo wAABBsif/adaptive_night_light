@@ -1,6 +1,9 @@
 #pragma once
 #include "driver/gpio.h"
 
+#define CLAMP(v, min, max) (v > min ? (v < max ? v : max) : min)
+#define LERP(a, b, v) (a + (b - a) * v)
+
 #define TAG                         "adaptive_night_light"
 
 #define ADC_UNIT                    ADC_UNIT_1
